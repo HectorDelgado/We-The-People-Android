@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">We The People</string>
+    <string name="we_the_people">We The People</string>
+    <string name="find_most_recent_petitions">Find Most Recent Petitions</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="bkgd_main">Black and white image of the statue of liberty.</string>
+    <string name="search">Search</string>
+    <string name="reset">Reset</string>
+</resources>
