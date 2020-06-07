@@ -2,7 +2,6 @@ package com.hectordelgado.wethepeople.util
 
 import android.content.Context
 import android.net.*
-import android.util.Log
 
 /**
  *  We The People

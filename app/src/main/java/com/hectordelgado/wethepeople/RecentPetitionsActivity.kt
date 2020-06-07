@@ -30,7 +30,7 @@ class RecentPetitionsActivity : AppCompatActivity(),
     PetitionAdapter.PetitionViewHolder.PetitionListener,
     SearchDialogFragment.SearchDialogListener {
     private val TAG_DEBUG = "DEBUGZ"
-    private val petitionAdapter = PetitionAdapter(mutableListOf<PetitionModel>(), this)
+    private val petitionAdapter = PetitionAdapter(mutableListOf(), this)
     private val cs = ConnectivityStatus.getInstance(this)
     private val baseURL = "https://api.whitehouse.gov/v1/petitions.json?"
     private val limit = 25

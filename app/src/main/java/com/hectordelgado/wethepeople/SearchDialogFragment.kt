@@ -2,17 +2,10 @@ package com.hectordelgado.wethepeople
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import java.lang.ClassCastException
 
 /**
  *  We The People
@@ -23,7 +16,7 @@ import java.lang.ClassCastException
  *  Copyright © 2020 Hector Delgado. All rights reserved.
  */
 class SearchDialogFragment : DialogFragment() {
-    internal lateinit var listener: SearchDialogListener
+    private lateinit var listener: SearchDialogListener
 
     interface SearchDialogListener {
         fun onSearchClick(dialog: DialogFragment, keyword: String)
@@ -35,7 +28,7 @@ class SearchDialogFragment : DialogFragment() {
         try {
             listener = context as SearchDialogListener
         } catch (e: ClassCastException) {
-            throw ClassCastException("${context.toString()} must implement SearchDialogListener")
+            throw ClassCastException("$context must implement SearchDialogListener")
         }
     }
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

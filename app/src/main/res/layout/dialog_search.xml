@@ -36,5 +36,6 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hintTextView" />
+        app:layout_constraintTop_toBottomOf="@id/hintTextView"
+        android:inputType="text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
