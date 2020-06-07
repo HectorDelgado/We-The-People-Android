@@ -97,9 +97,9 @@ class RecentPetitionsActivity : AppCompatActivity(),
             loadData()
         } else {
             val alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle("Oops")
-            alertDialog.setMessage("Max petitions reached!")
-            alertDialog.setPositiveButton("Ok") { _, _ -> }
+            alertDialog.setTitle(getString(R.string.oops))
+            alertDialog.setMessage(getString(R.string.no_more_petitions))
+            alertDialog.setPositiveButton(getString(R.string.ok)) { _, _ -> }
             alertDialog.show()
         }
     }
@@ -143,11 +143,11 @@ class RecentPetitionsActivity : AppCompatActivity(),
                         runOnUiThread {
                             val builder = AlertDialog.Builder(this@RecentPetitionsActivity)
                             builder
-                                .setTitle("Oops!")
-                                .setMessage("Something went wrong!\n${result.reason.localizedMessage}")
-                                .setPositiveButton("Ok") { dialog, which ->
-
-                                }
+                                .setTitle(getString(R.string.oops))
+                                .setMessage(getString(R.string.something_went_wrong) + "\n" +
+                                        result.reason.localizedMessage
+                                )
+                                .setPositiveButton(getString(R.string.ok)) { _, _ -> }
                             builder.show()
                         }
                     }
@@ -155,15 +155,14 @@ class RecentPetitionsActivity : AppCompatActivity(),
             } else {
                 runOnUiThread {
                     AlertDialog.Builder(this@RecentPetitionsActivity).apply {
-                        setTitle("Oops")
-                        setMessage("You need an internet connection!")
-                        setPositiveButton("Ok") { dialog, which ->  }
+                        setTitle(getString(R.string.oops))
+                        setMessage(getString(R.string.need_internet_connection))
+                        setPositiveButton(getString(R.string.ok)) { _, _ ->  }
                     }.also {
                         it.show()
                     }
                 }
             }
-
 
             runOnUiThread {
                 progressBar.visibility = View.INVISIBLE
@@ -202,10 +201,10 @@ class RecentPetitionsActivity : AppCompatActivity(),
             return Success(petitions)
         } catch (ex: MalformedURLException) {
             Log.e(TAG_DEBUG, ex.toString())
-            return Failure(Exception("MalformedURLException"))
+            return Failure(Exception("Bad URL format."))
         } catch (ex: JSONException) {
             Log.e(TAG_DEBUG, ex.toString())
-            return Failure(Exception("Bad JSON"))
+            return Failure(Exception("Bad JSON data."))
         } catch (ex: FileNotFoundException) {
             Log.e(TAG_DEBUG, ex.toString())
             return Failure(Exception("File not Found"))
@@ -229,22 +228,19 @@ class RecentPetitionsActivity : AppCompatActivity(),
         val keywords = keyword.split(",")
         filterResults(currentPetitions, keywords) { results ->
             if (results.size > 0) {
-                //filteredPetitions.clear()
-                //filteredPetitions.addAll(results)
-
                 currentPetitions.clear()
                 currentPetitions.addAll(results)
 
                 petitionAdapter.updateData(currentPetitions)
             } else {
-                Log.d("debugz", "No results found")
+                AlertDialog.Builder(this@RecentPetitionsActivity).apply {
+                    setTitle(getString(R.string.sorry))
+                    setMessage(getString(R.string.no_results_found))
+                    setPositiveButton(getString(R.string.ok)) { _, _ ->  }
+                }.also {
+                    it.show()
+                }
             }
-
         }
-
-    }
-
-    override fun onCancelClick(dialog: DialogFragment) {
-
     }
 }

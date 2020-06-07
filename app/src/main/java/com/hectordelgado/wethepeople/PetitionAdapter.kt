@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class PetitionAdapter(
     private val data: MutableList<PetitionModel>,
-    private val listener: PetitionViewHolder.PetitionListener)
-    : RecyclerView.Adapter<PetitionAdapter.PetitionViewHolder>() {
+    private val listener: PetitionViewHolder.PetitionListener
+) : RecyclerView.Adapter<PetitionAdapter.PetitionViewHolder>() {
 
     // Provide a reference to each of the views for each data item
     class PetitionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,7 +27,7 @@ class PetitionAdapter(
         val signatures: TextView = itemView.findViewById(R.id.signaturesTextView)
         val parentLayout: ConstraintLayout = itemView.findViewById(R.id.parentLayout)
 
-        // onClick Event Listener
+        // Contains a single callback method
         interface PetitionListener {
             fun onItemClicked(petition: PetitionModel)
         }
@@ -35,7 +35,8 @@ class PetitionAdapter(
 
     // Create new views (invoked by layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetitionViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.petition_row, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.petition_row, parent, false)
         return PetitionViewHolder(itemView)
     }
 

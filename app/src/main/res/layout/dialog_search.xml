@@ -9,7 +9,7 @@
         android:id="@+id/searchTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search For A Petition"
+        android:text="@string/search_for_a_petition"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/hintTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="(separate multiple words with ,)"
+        android:text="@string/separate_multiple_words_with"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="e.g. tech, fire, law"
+        android:hint="@string/e_g_tech_fire_law"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hintTextView" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

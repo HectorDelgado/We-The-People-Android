@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 AlertDialog.Builder(this).apply {
-                    setTitle("Oops")
-                    setMessage("You need an internet connection to run this app.")
-                    setPositiveButton("Ok") { _, _ -> }
+                    setTitle(getString(R.string.oops))
+                    setMessage(getString(R.string.need_internet_connection))
+                    setPositiveButton(getString(R.string.ok)) { _, _ -> }
                 }.also {
                     it.show()
                 }

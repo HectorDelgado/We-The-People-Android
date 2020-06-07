@@ -7,4 +7,15 @@
     <string name="bkgd_main">Black and white image of the statue of liberty.</string>
     <string name="search">Search</string>
     <string name="reset">Reset</string>
+    <string name="oops">Oops</string>
+    <string name="need_internet_connection">You need an internet connection to run this app.</string>
+    <string name="ok">Ok</string>
+    <string name="no_more_petitions">No more petitions!</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="sorry">Sorry</string>
+    <string name="no_results_found">No results found.</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_for_a_petition">Search For A Petition</string>
+    <string name="separate_multiple_words_with">separate multiple words with ,</string>
+    <string name="e_g_tech_fire_law">e.g. tech, fire, law</string>
 </resources>

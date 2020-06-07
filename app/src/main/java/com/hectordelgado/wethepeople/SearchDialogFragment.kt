@@ -27,7 +27,6 @@ class SearchDialogFragment : DialogFragment() {
 
     interface SearchDialogListener {
         fun onSearchClick(dialog: DialogFragment, keyword: String)
-        fun onCancelClick(dialog: DialogFragment)
     }
 
     override fun onAttach(context: Context) {
@@ -48,12 +47,10 @@ class SearchDialogFragment : DialogFragment() {
 
             // Inflate and set the layout for the dialog
             builder.setView(mainView)
-                .setPositiveButton("Ok") { dialog, which ->
+                .setPositiveButton(getString(R.string.ok)) { _, _ ->
                     listener.onSearchClick(this, searchEditText.text.toString())
                 }
-                .setNegativeButton("Cancel") { dialog, which ->
-                    listener.onCancelClick(this)
-                }
+                .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
